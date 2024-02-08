@@ -1,13 +1,8 @@
 import { FastifyPluginAsync } from 'fastify'
+import authRoute from './auth/index.js'
 
 const api: FastifyPluginAsync = async (fastify) => {
-  fastify.post('/login', async () => {
-    return null
-  })
-
-  fastify.post('/register', async () => {
-    return null
-  })
+  fastify.register(authRoute, { prefix: '/auth' })
 }
 
 export default api
